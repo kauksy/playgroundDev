@@ -1,0 +1,38 @@
+/* 등록자, 수정자 란 */
+.detail-info-1 {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 5%;
+}
+
+.detail-article1 {
+    margin-bottom: 5%;
+}
+
+.col-6-1 {
+    flex: 0 0 auto;
+    width: 35%;
+}
+
+.col-6-2 {
+    flex: 0 0 auto;
+    width: 65%;
+}
+
+#book-img {
+    width: 100%;
+}
+
+#img-btn {
+    text-align: center;     /*float과 text-align 차이*/
+    margin-top: 5%;
+    /* margin-left: -5%; */
+}
+
+#book-detail-1{
+    font-size: calc(0.5rem + 1.0vw);
+    padding-left: 7%;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 7%;
+}

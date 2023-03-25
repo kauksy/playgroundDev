@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/detail.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="common-page-margin">
+            <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+                <p class="main-title">어피치의 도서관리</p>
+                <div class="main-top-btn" >
+                    <button type="button" class="btn btn-outline-dark" id="del-btn">목록</button>
+                    <button type="button" class="btn btn-outline-dark" id="mod-btn">수정</button>
+                    <button type="button" class="btn btn-outline-dark" id="new-btn">신규</button>
+                </div>
+            </div></div>
+            <div class="detail-info-1">
+                등록자: 김수연 / 등록일시: 2023-03-20 21:04:13<br>
+                수정자: 김수연 / 등록일시: 2023-03-20 22:04:13<br>
+            </div>
+            
+            
+            <!-- 도서이미지 -->
+            <article class="detail-article1" >
+                <div class="row mb-3 text-center">
+                    <div class="col-6-1 themed-grid-col">
+                    <img id="book-img" src="../images/9788962622508.jpg">
+                    <!-- <button type="button" class="btn btn-outline-dark" id="img-btn">이미지편집</button> -->
+                    <!-- <div class="img-btn">
+                    </div> -->
+                </div>
+                    <div class="col-6-2 themed-grid-col" id="book-detail-1">
+                        ISBN: 9788962622508<br>
+                        카테고리: 과학이야기<br>
+                        도서명: 떨림과 울림<br>
+                        작가명: 김상욱<br>
+                        출판사: 동아시아<br>
+                        가격: 15,000 원<br>
+                        할인가: 13,500 원<br>
+                        발행일: 2018-11-07<br>
+                        쪽수: 272 쪽<br>
+                        총 권수: 1 권<br>
+                    </div>
+                  </div>
+                
+            </article>
+            <!-- 도서 소개 -->
+            <article class="detail-info-2" >
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h4 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          도서소개
+                        </button>
+                      </h4>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body"> <!-- accordion-body 클래스를 통해 아코디언을 계속 만들 수 있음-->
+                          <strong>
+                            물리학자 김상욱이 바라본 우주와 세계 그리고 우리<br>
+                            물리라는 언어를 통해 세계와 우리 존재를 바라보는 다른 눈을 뜨게 하다!
+                          </strong><br><br>
+                            ‘물리’라는 과학의 언어를 통해 세계를 읽고 생각하는 또 다른 방법을 안내하는 『떨림과 울림』. 
+                            빛, 시공간, 원자, 전자부터 최소작용의 원리, 카오스, 엔트로피, 양자역학, 단진동까지 
+                            물리에서 다루는 핵심 개념들을 차분히 소개하면서 물리라는 새로운 언어를 통해 우리 존재와 삶, 죽음의 문제부터 타자와의 관계, 
+                            세계에 관한 생각까지 새로운 틀에서 바라볼 수 있게 안내한다.<br><br>
+                            우리의 몸과 마시는 공기, 발을 딛고 서있는 땅과 흙, 그리고 매일 마주하는 노트북 모니터와 휴대전화까지. 
+                            세계의 모든 존재들은 모두 ‘원자’라는 아주 작은 단위로 이루어져 있다. 
+                            저자는 이 작고도 작은 단위까지 내려가 우리 존재부터 우주라는 커다란 세계까지 들여다보고 질문하고 
+                            우리가 생각의 타래를 열 수 있게 해준다.<br><br>
+                            저자는 원자의 기준으로는 인간의 탄생과 죽음이 단지 원자들이 모였다가 흩어지는 것과 다르지 않은 일이라고 이야기하면서 
+                            나의 존재를 이루는 것들은 어디에서 시작되었는지, 죽음을 어떻게 성찰할 수 있을지, 타자와 나의 차이는 무엇인지까지 
+                            엄밀한 과학의 정답을 제시하는 대신 물리학자만이 안내할 수 있는 새로운 시선을 제시해준다.<br><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h4 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          목차
+                        </button>
+                      </h4>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            프롤로그<br><br>
+
+                            1부 분주한 존재들 - 138억 년 전 그날 이후, 우리는 우리가 되었다<br>
+                            [빛] 138억 년 전, 처음으로 반짝이던<br>
+                            [시공간] 시간과 공간의 탄생<br>
+                            [우주] 세계의 존재 이유를 안다는 것<br>
+                            [원자] 우리를 이루는 것, 세상을 이루는 것<br>
+                            [전자] 모두 같으면서, 모두 다르다<br>
+                            - 생명이 존재하려면 『미토콘트리아』<br>
+                            - 물리학자가 바라본 존재의 차이, 차이의 크기<br>
+                            - 크기가 말하는 것 『이상한 나라의 앨리스』<br>
+                            - 존재의 크기에 관하여 ‘위상수학’이란 무엇인가<br><br>
+                            
+                            2부 시간을 산다는 것, 공간을 본다는 것 - 세계를 해석하는 일에 관하여<br>
+                            [최소작용의 원리] 미래를 아는 존재에게 현재를 산다는 것<br>
+                            [카오스] 확실한 예측은 오직<br>
+                            [엔트로피] 어제가 다시 오지 않는 이유<br>
+                            [양자역학] 우리는 믿는 것을 본다<br>
+                            [이중성] 대립적인 것은 상보적인 것<br>
+                            - 지구에서 본 우주, 달에서 본 우주<br>
+                            - 달을 가리키는데 왜 손가락을 보는가? 〈인터스텔라〉<br><br>
+                            - 물리학자에게 ‘우연’이란 「바빌로니아의 복권」, 『픽션들』<br><br>
+                            
+                            3부 관계에 관하여 - 힘들이 경합하는 세계<br>
+                            [중력] 서로가 서로에게 낙하한다<br>
+                            [전자기력] 존재의 떨림으로 빈 곳은 이어진다<br>
+                            [맥스웰 방정식] 현대 문명의 모습을 결정한 수식<br>
+                            [환원·창발] 많은 것은 다르다<br>
+                            [응집물리] 우선은 서로 만나야 한다<br>
+                            - 인공지능에게 타자란 〈엑스 마키나〉<br>
+                            - 세계의 온도는 표준편차가 결정한다<br><br>
+                            
+                            4부 우주는 떨림과 울림 - 과학의 언어로 세계를 읽는 법<br>
+                            [에너지] 사라지는 것은 없다, 변화할 뿐<br>
+                            [F=ma] 세상은 운동이다<br>
+                            [단진동] 우주는 떨림과 울림<br>
+                            [인간] 우주의 존재와 인간이라는 경이로움<br>
+                            - 상상의 질서, 그것을 믿는 일에 관하여 『사피엔스』<br>
+                            - 인간의 힘으로 우주의 진리를 알아가는 것 『천국의 문을 두드리며』<br><br>
+                            
+                            부록<br>
+                            지식에서 태도로 - 불투명한 세계에서 이론물리학자로 산다는 것<br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h4 class="accordion-header" id="headingThree">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            비고
+                          </button>
+                        </h4>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                            -
+                          </div>
+                        </div>
+                      </div>
+                  </div> 
+            </article>
+            
+        </div>      
+    </body>
+</html>
