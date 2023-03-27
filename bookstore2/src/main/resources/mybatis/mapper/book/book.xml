@@ -13,6 +13,6 @@
         SELECT BOOK_ID as id, 
                BOOK_NM as name
         FROM book_mst
-    </insert> -->
+    </insert> 테스트-->
 
 </mapper>
