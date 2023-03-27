@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en" xmlns:th="http://thymeleaf.org">
+<meta charset="UTF-8">
+
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+	
+	td, th{
+		border: 1px solid black;
+		text-align: left;
+	}
+	
+	tr:nth-child(even){
+		background-color:#dddddd;
+	}
+</style>
+
+<title>Insert title here</title>
+	</head>
+<body>
+	<h1>회원 리스트</h1>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+			</tr>
+		</thead>
+		<form method="post" action="/insertbook"> <!-- form으로 하거나, ajax로하거나/ form은 name으로 넘어간다.-->
+			<input type="text" name="bookid"><br>
+			<input type="text" name="bookname"><br>
+			<!-- <button type="button" onclick="location.href='/insertform'">삽입</button> -->
+			<button type="submit" >삽입</button>
+		</form>
+		<tbody>
+			<tr th:each="bookItem : ${bookList}"> <!-- Controller에 붙는애-->
+				<td><span th:text="${bookItem.id}"></span></td>
+				<td><span th:text="${bookItem.name}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
