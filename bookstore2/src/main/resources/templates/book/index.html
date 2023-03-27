@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en" xmlns:th="http://thymeleaf.org">
+<meta charset="UTF-8">
+
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+	
+	td, th{
+		border: 1px solid black;
+		text-align: left;
+	}
+	
+	tr:nth-child(even){
+		background-color:#dddddd;
+	}
+</style>
+
+<title>Insert title here</title>
+	</head>
+<body>
+	<h1>회원 리스트</h1>
+	<button type="button" onclick="location.href='/makebookform'">책입력</button>
+	<table>
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="bookItem : ${bookList}"> <!-- Controller에 붙는애-->
+				<td><span th:text="${bookItem.book_id}"></span></td>
+				<td><span th:text="${bookItem.book_nm}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

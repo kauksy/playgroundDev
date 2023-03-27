@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.play.jcslib.bookstore2.mapper.BookMapper">
+    <select id="getAllBooks" resultType="BookVo">
+        SELECT BOOK_ID,
+               BOOK_NM
+        FROM BOOK_MST
+    </select>
+
+    <!-- <insert id="insertBook" resultType="BookVo">
+        SELECT BOOK_ID as id, 
+               BOOK_NM as name
+        FROM book_mst
+    </insert> -->
+
+</mapper>
