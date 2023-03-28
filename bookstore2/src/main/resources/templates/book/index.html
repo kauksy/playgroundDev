@@ -50,8 +50,6 @@
 		<tbody>
 			<tr th:each="bookItem : ${bookList}"> <!-- Controller에 붙는애-->
 				<td><span th:text="${bookItem.book_id}"></span></td>
-				<td><span th:text="${bookItem.book_nm}"></span></td>
-				<td><span th:text="${bookItem.book_id}"></span></td>
 				<td><span th:text="${bookItem.cat_id}"></span></td>
 				<td><span th:text="${bookItem.book_nm}"></span></td>
 				<td><span th:text="${bookItem.author_id}"></span></td>
