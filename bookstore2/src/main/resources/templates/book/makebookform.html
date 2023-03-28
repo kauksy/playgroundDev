@@ -23,27 +23,28 @@
 <title>Insert title here</title>
 	</head>
 <body>
-	<h1>회원 리스트</h1>
-	
-	<table>
-		<thead>
-			<tr>
-				<th>아이디</th>
-				<th>이름</th>
-			</tr>
-		</thead>
-		<form method="post" action="/insertbook"> <!-- form으로 하거나, ajax로하거나/ form은 name으로 넘어간다.-->
-			<input type="text" name="bookid"><br>
-			<input type="text" name="bookname"><br>
-			<!-- <button type="button" onclick="location.href='/insertform'">삽입</button> -->
-			<button type="submit" >삽입</button>
-		</form>
-		<tbody>
-			<tr th:each="bookItem : ${bookList}"> <!-- Controller에 붙는애-->
-				<td><span th:text="${bookItem.id}"></span></td>
-				<td><span th:text="${bookItem.name}"></span></td>
-			</tr>
-		</tbody>
-	</table>
+	<h1>도서 입력</h1>
+	<form method="post" action="/insertbook"> <!-- form으로 하거나, ajax로하거나/ form은 name으로 넘어간다.-->
+		도서 pk (ISBN) <input type="text" name="book_id"><br>
+		카테고리 ID <input type="text" name="cat_id"><br>
+		도서명 <input type="text" name="book_nm"><br>
+		작가 <input type="text" name="author_id"><br>
+		출판사 <input type="text" name="pb_id"><br>
+		정가 <input type="number" name="price"><br>
+		발행일(출판일) <input type="text" name="pb_date"><br>	
+		이미지 경로 <input type="text" name="book_img"><br>
+		쪽수 <input type="text" name="pages"><br>
+		총권수 <input type="text" name="volume"><br>
+		도서소개 <input type="text" name="book_intro"><br>
+		비고 <input type="text" name="rmk"><br>
+		등록자 <input type="text" name="rgr_id"><br>
+		등록일시 <input type="text" name="rgr_dtti"><br>
+		수정자 <input type="text" name="ch_id"><br>
+		수정일시 <input type="text" name="ch_dtti"><br>
+		
+		<!-- <button type="button" onclick="location.href='/insertform'">삽입</button> -->
+		<button type="submit" onclick="location.href='/insertform'">삽입</button>
+	</form>
+
 </body>
 </html>

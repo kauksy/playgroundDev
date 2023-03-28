@@ -40,6 +40,12 @@ public class BookController {
         return "book/makebookform";
     }
 
+    @RequestMapping(value= "/insertform")
+    public String insertform(Model model){
+        // List<BookVo> insertBookList = bookService.insertBook();
+        // return "book/makebookform";
+        return "book/index";
+    }
 
 
 }
