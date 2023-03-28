@@ -28,8 +28,22 @@
 	<table>
 		<thead>
 			<tr>
-				<th>아이디</th>
-				<th>이름</th>
+				<th>도서 pk (ISBN)</th>
+				<th>카테고리 ID</th>
+				<th>도서명</th>
+				<th>작가</th>
+				<th>출판사</th>
+				<th>정가</th>
+				<th>발행일(출판일)</th>
+				<th>이미지 경로</th>
+				<th>쪽수</th>
+				<th>총권수</th>
+				<th>도서소개</th>
+				<th>비고</th>
+				<th>등록자</th>
+				<th>등록일시</th>
+				<th>수정자</th>
+				<th>수정일시</th>
 			</tr>
 		</thead>
 		
@@ -37,6 +51,22 @@
 			<tr th:each="bookItem : ${bookList}"> <!-- Controller에 붙는애-->
 				<td><span th:text="${bookItem.book_id}"></span></td>
 				<td><span th:text="${bookItem.book_nm}"></span></td>
+				<td><span th:text="${bookItem.book_id}"></span></td>
+				<td><span th:text="${bookItem.cat_id}"></span></td>
+				<td><span th:text="${bookItem.book_nm}"></span></td>
+				<td><span th:text="${bookItem.author_id}"></span></td>
+				<td><span th:text="${bookItem.pb_id}"></span></td>
+				<td><span th:text="${bookItem.price}"></span></td>
+				<td><span th:text="${bookItem.pb_date}"></span></td>
+				<td><span th:text="${bookItem.book_img}"></span></td>
+				<td><span th:text="${bookItem.pages}"></span></td>
+				<td><span th:text="${bookItem.volume}"></span></td>
+				<td><span th:text="${bookItem.book_intro}"></span></td>
+				<td><span th:text="${bookItem.rmk}"></span></td>
+				<td><span th:text="${bookItem.rgr_id}"></span></td>
+				<td><span th:text="${bookItem.rgr_dtti}"></span></td>
+				<td><span th:text="${bookItem.ch_id}"></span></td>
+				<td><span th:text="${bookItem.ch_dtti}"></span></td>
 			</tr>
 		</tbody>
 	</table>
