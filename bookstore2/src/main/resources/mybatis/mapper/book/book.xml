@@ -4,8 +4,22 @@
 
 <mapper namespace="com.play.jcslib.bookstore2.mapper.BookMapper">
     <select id="getAllBooks" resultType="BookVo">
-        SELECT BOOK_ID,
-               BOOK_NM
+        SELECT  BOOK_ID,
+                CAT_ID,
+                BOOK_NM,
+                AUTHOR_ID,
+                PB_ID,
+                PRICE,
+                PB_DATE,
+                BOOK_IMG,
+                PAGES,
+                VOLUME,
+                BOOK_INTRO,
+                RMK,
+                RGR_ID,
+                RGR_DTTI,
+                CH_ID,
+                CH_DTTI	
         FROM BOOK_MST
     </select>
 
