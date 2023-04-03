@@ -19,4 +19,14 @@ public class BookServiceImpl implements BookService {
     public List<BookVo> getAllBooks() {
         return bookMapper.getAllBooks();
     }
+
+    @Override
+    public void insertBook(BookVo book) {
+        bookMapper.insertBook(book);
+    }
+
+    @Override
+    public BookVo getSelectedBook(String isbn) {
+        return bookMapper.getSelectedBook(isbn);
+    }
 }

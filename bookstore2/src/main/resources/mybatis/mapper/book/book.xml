@@ -23,10 +23,64 @@
         FROM BOOK_MST
     </select>
 
-    <!-- <insert id="insertBook" resultType="BookVo">
-        SELECT BOOK_ID as id, 
-               BOOK_NM as name
-        FROM book_mst
-    </insert> 테스트-->
+    <select id="getSelectedBook" resultType="BookVo" parameterType="String">
+        SELECT  BOOK_ID,
+                CAT_ID,
+                BOOK_NM,
+                AUTHOR_ID,
+                PB_ID,
+                PRICE,
+                PB_DATE,
+                BOOK_IMG,
+                PAGES,
+                VOLUME,
+                BOOK_INTRO,
+                RMK,
+                RGR_ID,
+                RGR_DTTI,
+                CH_ID,
+                CH_DTTI	
+        FROM BOOK_MST
+        WHERE BOOK_ID =#{isbn}
+    </select>
+
+    <insert id="insertBook" parameterType="com.play.jcslib.bookstore2.vo.BookVo">
+        INSERT INTO BOOK_MST (
+                                BOOK_ID,
+                                CAT_ID,
+                                BOOK_NM,
+                                AUTHOR_ID,
+                                PB_ID,
+                                PRICE,
+                                PB_DATE,
+                                BOOK_IMG,
+                                PAGES,
+                                VOLUME,
+                                BOOK_INTRO,
+                                RMK,
+                                RGR_ID,
+                                RGR_DTTI,
+                                CH_ID,
+                                CH_DTTI	
+                            )
+              VALUES (
+                          #{book_id}
+                        , #{cat_id}
+                        , #{book_nm}
+                        , #{author_id}
+                        , #{pb_id}
+                        , #{price}
+                        , #{pb_date}
+                        , #{book_img}
+                        , #{pages}
+                        , #{volume}
+                        , #{book_intro}
+                        , #{rmk}
+                        , #{rgr_id}
+                        , NOW()
+                        , #{ch_id}
+                        , NOW()
+                      )
+    </insert>
 
 </mapper>

@@ -19,13 +19,14 @@
 	}
 </style>
 
-<title>Insert title here</title>
-	</head>
+<title>어피치 도서검색</title>
+</head>
 <body>
 	<h1>도서 리스트</h1>
 	<button type="button" onclick="location.href='/makebookform'">책 등록</button>
 	<button type="button" onclick="location.href='/modifybook'">책 수정</button>
 	<button type="button" onclick="location.href='/deletebook'">책 삭제</button>
+    <p th:text="${book}"></p>
 	<table id="bookTB">
 		<thead>
 			<tr>
@@ -71,29 +72,4 @@
 	</table>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript">
-	var allData;
-$(document).ready(function(){
-	$("#bookTB tr").click(function(){
-		var tdArr = new Array();
-		var td = $(this).children();
-		var isbn = td.eq(0).text();
-		allData = {"isbn": isbn };
-
-		$.ajax({
-			type : "GET",
-			url : "bookdetail",
-			data: allData,
-			success : function (data) {
-				alert("완료");
-				window.location.href = "bookdetail?isbn=" + allData.isbn;
-			},
-			error : function () {
-				alert("error!");
-			}
-		});
-	});
-});
-</script>
 </html>

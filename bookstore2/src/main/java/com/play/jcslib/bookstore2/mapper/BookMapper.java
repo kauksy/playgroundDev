@@ -11,5 +11,11 @@ public interface BookMapper {
 
     List<BookVo> getAllBooks();
 
+    void insertBook(BookVo book);
+
+    BookVo getSelectedBook(String isbn);
+
+    // List<Map<String, Object> getAllBooks();
+
     
 }

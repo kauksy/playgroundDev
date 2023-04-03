@@ -1,11 +1,17 @@
 package com.play.jcslib.bookstore2.controller;
 
+import java.net.http.HttpClient.Redirect;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.play.jcslib.bookstore2.service.BookService;
 import com.play.jcslib.bookstore2.vo.BookVo;
@@ -40,12 +46,26 @@ public class BookController {
         return "book/makebookform";
     }
 
-    @RequestMapping(value= "/insertform")
-    public String insertform(Model model){
-        // List<BookVo> insertBookList = bookService.insertBook();
-        // return "book/makebookform";
-        return "book/index";
+    @RequestMapping(value= "/insertbook")
+    public String insertform(BookVo book){
+        bookService.insertBook(book);
+        return "redirect:/index";
     }
 
+    @GetMapping("bookdetail")
+    @RequestMapping(value= "/bookdetail")
+    public String bookdetail (@ModelAttribute("isbn") String isbn, Model model){
+        BookVo book = bookService.getSelectedBook(isbn);
+        model.addAttribute("book", book);
+        return "book/bookdetail";
+    }
+
+    
+    @RequestMapping(value= "/modifybook")
+    public String modifybook(BookVo book, Model model){
+        System.out.println(">>>>>>> modifybook");
+        
+        return "book/modifybook";
+    }
 
 }
