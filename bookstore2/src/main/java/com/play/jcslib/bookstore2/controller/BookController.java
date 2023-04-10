@@ -69,10 +69,10 @@ public class BookController {
 
     @PostMapping("modifybook")
     @RequestMapping(value= "/modifybook")
-    public String modifybook(@RequestBody List<Object> dataArrayToSend){
+    public String modifybook(@RequestBody List<Object> dataArrayToSend, Model model){
         System.out.println(">>>>>>> modifybook");
         System.out.println("Your Data =>" + dataArrayToSend);
-
+        model.addAttribute("book", dataArrayToSend);
         return "book/modifybook";
     }
 
