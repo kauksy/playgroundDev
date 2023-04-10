@@ -11,5 +11,7 @@ public interface BookService {
     public void insertBook(BookVo book);
 
     public BookVo getSelectedBook(String isbn);
+
+    public void deleteBook(String isbn);
     
 }

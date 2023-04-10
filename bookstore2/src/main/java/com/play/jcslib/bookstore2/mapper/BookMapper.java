@@ -15,6 +15,8 @@ public interface BookMapper {
 
     BookVo getSelectedBook(String isbn);
 
+    void deleteBook(String isbn);
+
     // List<Map<String, Object> getAllBooks();
 
     

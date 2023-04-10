@@ -83,4 +83,10 @@
                       )
     </insert>
 
+    <delete id="deleteBook" parameterType="com.play.jcslib.bookstore2.vo.BookVo">
+        DELETE 
+        FROM BOOK_MST
+        WHERE BOOK_ID =#{isbn}
+    </delete>
+
 </mapper>

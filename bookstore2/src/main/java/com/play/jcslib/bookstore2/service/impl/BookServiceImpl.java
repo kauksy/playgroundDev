@@ -29,4 +29,9 @@ public class BookServiceImpl implements BookService {
     public BookVo getSelectedBook(String isbn) {
         return bookMapper.getSelectedBook(isbn);
     }
+
+    @Override
+    public void deleteBook(String isbn) {
+        bookMapper.deleteBook(isbn);
+    }
 }

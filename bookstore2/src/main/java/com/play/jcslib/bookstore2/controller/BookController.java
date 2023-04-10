@@ -7,10 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.play.jcslib.bookstore2.service.BookService;
 import com.play.jcslib.bookstore2.vo.BookVo;
+
+import ch.qos.logback.core.read.ListAppender;
 
 @Controller
 @RequestMapping("/")
@@ -48,6 +52,13 @@ public class BookController {
         return "redirect:/index";
     }
 
+    @GetMapping("deletebook")
+    @RequestMapping(value= "/deletebook")
+    public String deletebook(@ModelAttribute("isbn") String isbn){
+        bookService.deleteBook(isbn);
+        return "redirect:/index";
+    }
+
     @GetMapping("bookdetail")
     @RequestMapping(value= "/bookdetail")
     public String bookdetail (@ModelAttribute("isbn") String isbn, Model model){
@@ -56,11 +67,12 @@ public class BookController {
         return "book/bookdetail";
     }
 
-    
+    @PostMapping("modifybook")
     @RequestMapping(value= "/modifybook")
-    public String modifybook(BookVo book, Model model){
+    public String modifybook(@RequestBody List<Object> dataArrayToSend){
         System.out.println(">>>>>>> modifybook");
-        
+        System.out.println("Your Data =>" + dataArrayToSend);
+
         return "book/modifybook";
     }
 
