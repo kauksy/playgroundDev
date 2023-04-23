@@ -1,1 +1,98 @@
-책수정잼
+<!DOCTYPE html>
+<html>
+<head lang="en" xmlns:th="http://thymeleaf.org">
+<meta charset="UTF-8">
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+		margin-top: 2%;
+	}
+	
+	td, th{
+		border: 1px solid black;
+		text-align: left;
+	}
+	
+	tr:nth-child(even){
+		background-color:#dddddd;
+	}
+</style>
+
+<title>어피치 도서검색</title>
+</head>
+<body>
+	<h1>도서 리스트</h1>
+	<button type="button" onclick="location.href='/makebookform'">책 등록</button>
+	<button type="button" onclick="location.href='/deletebook'">책 삭제</button>
+	<button type="button" onclick="location.href='/index'">목록</button>
+
+	<table id="bookTB">
+		<tr>
+			<th>*도서PK (ISBN)</th>
+            <td><input type="text" th:value="${book.book_id}" readonly/></td>
+		</tr>
+		<tr>
+			<th>카테고리 ID</th>
+			<td><input type="text" th:value="${book.cat_id}" /></td>
+		</tr>
+		<tr>
+			<th>도서명</th>
+			<td><input type="text" th:value="${book.book_nm}" /></td>
+		</tr>
+		<tr>
+			<th>작가</th>
+			<td><input type="text" th:value="${book.author_id}" /></td>
+		</tr>
+		<tr>
+			<th>출판사</th>
+			<td><input type="text" th:value="${book.pb_id}" /></td>
+		</tr>
+		<tr>
+			<th>정가</th>
+			<td><input type="text" th:value="${book.price}" /></td>
+		</tr>
+		<tr>
+			<th>발행일(출판일)</th>
+			<td><input type="text" th:value="${book.pb_date}" /></td>
+		</tr>
+		<tr>
+			<th>이미지 경로</th>
+			<td><input type="text" th:value="${book.book_img}" /></td>
+		</tr>
+		<tr>
+			<th>쪽수</th>
+			<td><input type="text" th:value="${book.pages}" /></td>
+		</tr>
+		<tr>
+			<th>총 권수</th>
+			<td><input type="text" th:value="${book.volume}" /></td>
+		</tr>
+		<tr>
+			<th>도서소개</th>
+			<td><input type="text" th:value="${book.book_intro}" /></td>
+		</tr>
+		<tr>
+			<th>비고</th>
+			<td><input type="text" th:value="${book.rmk}" /></td>
+		</tr>
+		<tr>
+			<th>*등록자</th>
+			<td><input type="text" th:value="${book.rgr_id}" readonly/></td>
+		</tr>
+		<tr>
+			<th>*등록일시</th>
+			<td><input type="text" th:value="${book.rgr_dtti}" readonly/></td>
+		</tr>
+		<tr>
+			<th>*수정자</th>
+			<td><input type="text" th:value="${book.ch_id}" /></td>
+		</tr>
+		<tr>
+			<th>*수정일시</th>
+			<td><input type="text" th:value="${book.ch_dtti}" readonly/></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -7,6 +7,7 @@
 		font-family: arial, sans-serif;
 		border-collapse: collapse;
 		width: 100%;
+		margin-top: 2%;
 	}
 	
 	td, th{
@@ -23,76 +24,69 @@
 	</head>
 <body>
 	<h1>도서 리스트</h1>
-	<button type="button" onclick="location.href='/makebookform'">책 등록</button>
-	<button type="button" onclick="location.href='/modifybook'">책 수정</button>
-	<button type="button" onclick="location.href='/deletebook'">책 삭제</button>
-	<table id="bookTB">
-		<thead>
-			<tr>
-				<th>도서 pk (ISBN)</th>
-				<th>카테고리 ID</th>
-				<th>도서명</th>
-				<th>작가</th>
-				<th>출판사</th>
-				<th>정가</th>
-				<th>발행일(출판일)</th>
-				<th>이미지 경로</th>
-				<th>쪽수</th>
-				<th>총권수</th>
-				<th>도서소개</th>
-				<th>비고</th>
-				<th>등록자</th>
-				<th>등록일시</th>
-				<th>수정자</th>
-				<th>수정일시</th>
-			</tr>
-		</thead>
-		
-		<tbody>
-			<tr th:each="bookItem : ${bookList}">
-				<td><span th:text="${bookItem.book_id}"></span></td>
-				<td><span th:text="${bookItem.cat_id}"></span></td>
-				<td><span th:text="${bookItem.book_nm}"></span></td>
-				<td><span th:text="${bookItem.author_id}"></span></td>
-				<td><span th:text="${bookItem.pb_id}"></span></td>
-				<td><span th:text="${bookItem.price}"></span></td>
-				<td><span th:text="${bookItem.pb_date}"></span></td>
-				<td><span th:text="${bookItem.book_img}"></span></td>
-				<td><span th:text="${bookItem.pages}"></span></td>
-				<td><span th:text="${bookItem.volume}"></span></td>
-				<td><span th:text="${bookItem.book_intro}"></span></td>
-				<td><span th:text="${bookItem.rmk}"></span></td>
-				<td><span th:text="${bookItem.rgr_id}"></span></td>
-				<td><span th:text="${bookItem.rgr_dtti}"></span></td>
-				<td><span th:text="${bookItem.ch_id}"></span></td>
-				<td><span th:text="${bookItem.ch_dtti}"></span></td>
-			</tr>
-		</tbody>
-	</table>
+	<form id="detailForm" method="get" action="/bookdetail">
+		<input type="hidden" id="isbn" name="isbn" />
+		<button type="button" onclick="location.href='/makebookform'">책 등록</button>
+		<button type="button" onclick="location.href='/deletebook'">책 삭제</button>
+		<table id="bookTB">
+			<thead>
+				<tr>
+					<th>선택</th>
+					<th>도서 pk (ISBN)</th>
+					<th>카테고리 ID</th>
+					<th>도서명</th>
+					<th>작가</th>
+					<th>출판사</th>
+					<th>정가</th>
+					<th>발행일(출판일)</th>
+					<th>이미지 경로</th>
+					<th>쪽수</th>
+					<th>총권수</th>
+					<th>도서소개</th>
+					<th>비고</th>
+					<th>등록자</th>
+					<th>등록일시</th>
+					<th>수정자</th>
+					<th>수정일시</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="bookItem : ${bookList}">
+					<td class="selected_td"><input type="text" id="book_id" name="book_id" th:value="${bookItem.book_id}" disabled/></td>
+					<td class="selected_td"><input type="text" id="cat_id" name="cat_id" th:value="${bookItem.cat_id}" disabled/></td>
+					<td class="selected_td"><input type="text" id="book_nm" name="book_nm" th:value="${bookItem.book_nm}" disabled/></td>
+					<td class="selected_td"><input type="text" id="author_id" name="author_id" th:value="${bookItem.author_id}" disabled/></td>
+					<td class="selected_td"><input type="text" id="pb_id" name="pb_id" th:value="${bookItem.pb_id}" disabled/></td>
+					<td class="selected_td"><input type="text" id="price" name="price" th:value="${bookItem.price}" disabled/></td>
+					<td class="selected_td"><input type="text" id="pb_date" name="pb_date" th:value="${bookItem.pb_date}" disabled/></td>
+					<td class="selected_td"><input type="text" id="book_img" name="book_img" th:value="${bookItem.book_img}" disabled/></td>
+					<td class="selected_td"><input type="text" id="pages" name="pages" th:value="${bookItem.pages}" disabled/></td>
+					<td class="selected_td"><input type="text" id="volume" name="volume" th:value="${bookItem.volume}" disabled/></td>
+					<td class="selected_td"><input type="text" id="book_intro" name="book_intro" th:value="${bookItem.book_intro}" disabled/></td>
+					<td class="selected_td"><input type="text" id="rmk" name="rmk" th:value="${bookItem.rmk}" disabled/></td>
+					<td class="selected_td"><input type="text" id="rgr_id" name="rgr_id" th:value="${bookItem.rgr_id}" disabled/></td>
+					<td class="selected_td"><input type="text" id="rgr_dtti" name="rgr_dtti" th:value="${bookItem.rgr_dtti}" disabled/></td>
+					<td class="selected_td"><input type="text" id="ch_id" name="ch_id" th:value="${bookItem.ch_id}" disabled/></td>
+					<td class="selected_td"><input type="text" id="ch_dtti" name="ch_dtti" th:value="${bookItem.ch_dtti}" disabled/></td> 
+				</tr>
+			</tbody>
+		</table>
+</form>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
 	var allData;
 $(document).ready(function(){
-	$("#bookTB tr").click(function(){
-		var tdArr = new Array();
-		var td = $(this).children();
-		var isbn = td.eq(0).text();
-		allData = {"isbn": isbn };
-
-		$.ajax({
-			type : "GET",
-			url : "bookdetail",
-			data: allData,
-			success : function (data) {
-				window.location.href = "bookdetail?isbn=" + allData.isbn;
-			},
-			error : function () {
-				alert("도서를 선택해주세요.");
-			}
-		});
-	});
+	$(".selected_td").click(function(){
+	 	var tdArr = new Array();
+	 	var td = $(this).children();
+	 	var isbn = td.eq(0).val();
+		
+		document.getElementById('isbn').value = isbn;
+		$("#detailForm").submit();
+	 });
 });
 </script>
 </html>

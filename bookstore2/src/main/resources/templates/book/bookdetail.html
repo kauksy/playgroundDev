@@ -23,7 +23,8 @@
 <title>어피치 도서검색</title>
 </head>
 <!-- attr사용하여 수정버튼 클릭했을 때, span 태그가 input으로 바뀌게 변경하거나
-아니면 isbn을 키값으로 활용하여 다시 받아와서 그리거나 -->
+아니면 isbn을 키값으로 활용하여 다시 받아와서 그리거나 
+input값 가진 테이블 한쌍 더 만들고 클릭하면 hidden 했던걸 보여준다 (히든스위칭)	-->
 <body>
 	<h1>도서 리스트</h1>
 	<form method="post" action="/modifybook">
@@ -34,67 +35,67 @@
 		<table id="bookTB">
 			<tr>
 				<th>*도서PK (ISBN)</th>
-				<td><span id="book_id" th:text="${book.book_id}"></span></td>
+				<td><input id="book_id" name="book_id" th:value="${book.book_id}" readonly/></td>
 			</tr>
 			<tr>
 				<th>카테고리 ID</th>
-				<td><span id="cat_id" th:text="${book.cat_id}"></span></td>
+				<td><input id="cat_id" name="cat_id" th:value="${book.cat_id}" readonly/></td>
 			</tr>
 			<tr>
 				<th>도서명</th>
-				<td><span id="book_nm" th:text="${book.book_nm}"></span></td>
+				<td><input id="book_nm" name="book_nm" th:value="${book.book_nm}" readonly/></td>
 			</tr>
 			<tr>
 				<th>작가</th>
-				<td><span id="author_id" th:text="${book.author_id}"></span></td>
+				<td><input id="author_id" name="author_id" th:value="${book.author_id}" readonly/></td>
 			</tr>
 			<tr>
 				<th>출판사</th>
-				<td><span id="pb_id" th:text="${book.pb_id}"></span></td>
+				<td><input id="pb_id" name="pb_id" th:value="${book.pb_id}" readonly/></td>
 			</tr>
 			<tr>
 				<th>정가</th>
-				<td><span id="price" th:text="${book.price}"></span></td>
+				<td><input id="price" name="price" th:value="${book.price}" readonly/></td>
 			</tr>
 			<tr>
 				<th>발행일(출판일)</th>
-				<td><span id="pb_date" th:text="${book.pb_date}"></span></td>
+				<td><input id="pb_date" name="pb_date" th:value="${book.pb_date}" readonly/></td>
 			</tr>
 			<tr>
 				<th>이미지 경로</th>
-				<td><span id="book_img" th:text="${book.book_img}"></span></td>
+				<td><input id="book_img" name="book_img" th:value="${book.book_img}" readonly/></td>
 			</tr>
 			<tr>
 				<th>쪽수</th>
-				<td><span id="pages" th:text="${book.pages}"></span></td>
+				<td><input id="pages" name="pages" th:value="${book.pages}" readonly/></td>
 			</tr>
 			<tr>
 				<th>총 권수</th>
-				<td><span id="volume" th:text="${book.volume}"></span></td>
+				<td><input id="volume" name="volume" th:value="${book.volume}" readonly/></td>
 			</tr>
 			<tr>
 				<th>도서소개</th>
-				<td><span id="book_intro" th:text="${book.book_intro}"></span></td>
+				<td><input id="book_intro" name="book_intro" th:value="${book.book_intro}" readonly/></td>
 			</tr>
 			<tr>
 				<th>비고</th>
-				<td><span id="rmk" th:text="${book.rmk}"></span></td>
+				<td><input id="rmk" name="rmk" th:value="${book.rmk}" readonly/></td>
 			</tr>
 			<tr>
 				<th>*등록자</th>
-				<td><span id="rgr_id" th:text="${book.rgr_id}"></span></td>
+				<td><input id="rgr_id" name="rgr_id" th:value="${book.rgr_id}" readonly/></td>
 			</tr>
 			<tr>
 				<th>*등록일시</th>
-				<td><span id="rgr_dtti" th:text="${book.rgr_dtti}"></span></td>
+				<td><input id="rgr_dtti" name="rgr_dtti" th:value="${book.rgr_dtti}" readonly/></td>
 			</tr>
 			<tr>
 				<th>*수정자</th>
-				<td><span id="ch_id" th:text="${book.ch_id}"></span></td>
+				<td><input id="ch_id" name="ch_id" th:value="${book.ch_id}" readonly/></td>
 			</tr>
 			<tr>
 				<th>*수정일시</th>
-				<td><span id="ch_dtti" th:text="${book.ch_dtti}"></span></td>
+				<td><input id="ch_dtti" name="ch_dtti" th:value="${book.ch_dtti}" readonly/></td>
 			</tr>
 		</table>
 	</form>
@@ -105,26 +106,6 @@
 	var dataArrayToSend = [];
 	var dataArrayToSend1 = [];
  $(document).ready(function(){
-	$("#modifybook").click(function(){
-		$("#bookTB tr").each(function(){
-			dataArrayToSend.push($(this).find("td").eq(0).text());
-		});
-
-		console.log('>>>>>');
-		$.ajax({
-			contentType: "application/json",
-			type: "POST",
-			data: JSON.stringify(dataArrayToSend),
-			url: "modifybook",
-			success: function(data) {
-				console.log('done');
-			},
-		error: function(jqXHR, textStatus, errorThrown){
-				console.log('error while post');
-			}
-		});
-	});
-
 	$("#deletebook").click(function(){
 		var isbn = $("#bookTB tr").find("td").eq(0).text();
 		console.log('isbn: ' + isbn);

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.play.jcslib.bookstore2.service.BookService;
 import com.play.jcslib.bookstore2.vo.BookVo;
@@ -59,21 +60,31 @@ public class BookController {
         return "redirect:/index";
     }
 
-    @GetMapping("bookdetail")
+// 현재페이지에서 받아서 뭔가하고싶을때 ajax, url로 넘기고 싶은거는 뷰를 받는 컨트롤러를 따로 만들어야함
+// 폼은 짐싸들고 가는거 얘는 폼으로 바꾸는게 적합하다!
+    @PostMapping("bookdetail")
     @RequestMapping(value= "/bookdetail")
-    public String bookdetail (@ModelAttribute("isbn") String isbn, Model model){
+    public String bookdetail (@RequestParam("isbn") String isbn, Model model){
+        System.out.println(">>>>>>> bookdetail");
         BookVo book = bookService.getSelectedBook(isbn);
-        model.addAttribute("book", book);
+        model.addAttribute("book", book); // html을 부르는거니까, 얘를 빼고.. 뷰를 받는 컨트롤러를 하나더 만들던가 폼으로 넘기던가
         return "book/bookdetail";
     }
 
     @PostMapping("modifybook")
     @RequestMapping(value= "/modifybook")
-    public String modifybook(@RequestBody List<Object> dataArrayToSend, Model model){
+    public String modifybook(@RequestParam("book_id") String isbn, Model model){
         System.out.println(">>>>>>> modifybook");
-        System.out.println("Your Data =>" + dataArrayToSend);
-        model.addAttribute("book", dataArrayToSend);
+        System.out.println("model =>" + model);
+        System.out.println("isbn =>" + isbn);
+        BookVo book = bookService.getSelectedBook(isbn);
+        model.addAttribute("book", book);
         return "book/modifybook";
     }
 
 }
+
+
+/*
+ * form으로 데이터 받아오기, 업데이트(수정) 페이지 완성해보기
+ */
