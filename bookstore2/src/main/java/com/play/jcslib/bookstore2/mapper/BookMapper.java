@@ -1,6 +1,7 @@
 package com.play.jcslib.bookstore2.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,7 +18,8 @@ public interface BookMapper {
 
     void deleteBook(String isbn);
 
-    // List<Map<String, Object> getAllBooks();
+    void updateBook(BookVo book);
 
+    void updateBookMap(Map bookMap);
     
 }

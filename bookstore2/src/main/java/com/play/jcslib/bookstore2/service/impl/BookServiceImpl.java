@@ -1,6 +1,7 @@
 package com.play.jcslib.bookstore2.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,16 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookVo getSelectedBook(String isbn) {
         return bookMapper.getSelectedBook(isbn);
+    }
+
+    @Override
+    public void updateBook(BookVo book) {
+        bookMapper.updateBook(book);
+    }
+
+    @Override
+    public void updateBookMap(Map bookMap){
+        bookMapper.updateBookMap(bookMap);
     }
 
     @Override

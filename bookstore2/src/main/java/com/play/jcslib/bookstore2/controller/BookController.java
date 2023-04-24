@@ -1,6 +1,9 @@
 package com.play.jcslib.bookstore2.controller;
 
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import com.play.jcslib.bookstore2.service.BookService;
 import com.play.jcslib.bookstore2.vo.BookVo;
 
 import ch.qos.logback.core.read.ListAppender;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/")
@@ -80,6 +84,58 @@ public class BookController {
         BookVo book = bookService.getSelectedBook(isbn);
         model.addAttribute("book", book);
         return "book/modifybook";
+    }
+
+    @PostMapping("savebook")
+    @RequestMapping(value= "/savebook")
+    public String savebook(HttpServletRequest request){
+        System.out.println(">>>>>>> savebook");
+        String isbn = request.getParameter("book_id");
+        BookVo saveBook = new BookVo();
+
+        saveBook.setBook_id(request.getParameter("book_id"));
+        saveBook.setCat_id(request.getParameter("cat_id"));
+        saveBook.setBook_nm(request.getParameter("book_nm"));
+        saveBook.setAuthor_id(request.getParameter("author_id"));
+        saveBook.setPb_id(request.getParameter("pb_id"));
+        saveBook.setPrice(Integer.parseInt(request.getParameter("price")));
+        saveBook.setPb_date(request.getParameter("pb_date"));
+        saveBook.setBook_img(request.getParameter("book_img"));
+        saveBook.setPages(request.getParameter("pages"));
+        saveBook.setVolume(request.getParameter("volume"));
+        saveBook.setBook_intro(request.getParameter("book_intro"));
+        saveBook.setRmk(request.getParameter("rmk"));
+        saveBook.setCh_id(request.getParameter("ch_id"));
+
+        // BookVO 안쓸거면 MAP으로 한다.
+
+        bookService.updateBook(saveBook);
+
+        return "redirect:/index";
+    }
+
+    @PostMapping("savebookMap")
+    @RequestMapping(value= "/savebookMap")
+    public String savebookMap(HttpServletRequest request){
+        System.out.println(">>>>>>> savebookMap");
+        Map<String, Object> saveBookMap = new HashMap<>();
+
+        Enumeration names = request.getParameterNames();
+        while(names.hasMoreElements()) {
+            String key = (String) names.nextElement();
+            System.out.println(key + ": " + request.getParameter(key));
+
+            if(key.equals("price")){
+                saveBookMap.put(key, Integer.parseInt(request.getParameter(key)));
+            }else {
+                saveBookMap.put(key, request.getParameter(key));
+            }
+
+        }
+
+        bookService.updateBookMap(saveBookMap);
+
+        return "redirect:/index";
     }
 
 }

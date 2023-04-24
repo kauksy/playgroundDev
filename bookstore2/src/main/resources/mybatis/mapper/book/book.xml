@@ -76,12 +76,50 @@
                         , #{volume}
                         , #{book_intro}
                         , #{rmk}
-                        , #{rgr_id}
                         , NOW()
                         , #{ch_id}
                         , NOW()
                       )
     </insert>
+
+    <update id="updateBook" parameterType="com.play.jcslib.bookstore2.vo.BookVo">
+        UPDATE BOOK_MST
+        SET     
+                 CAT_ID =#{cat_id}
+            ,    BOOK_NM =#{book_nm}
+            ,    AUTHOR_ID =#{author_id}
+            ,    PB_ID =#{pb_id}
+            ,    PRICE =#{price}
+            ,    PB_DATE =#{pb_date}
+            ,    BOOK_IMG =#{book_img}
+            ,    PAGES =#{pages}
+            ,    VOLUME =#{volume}
+            ,    BOOK_INTRO =#{book_intro}
+            ,    RMK =#{rmk}
+            ,    CH_ID =#{ch_id}
+            ,    CH_DTTI = NOW()
+        WHERE    BOOK_ID =#{book_id}
+    </update>  
+    
+        <update id="updateBookMap" parameterType="HashMap">
+        UPDATE BOOK_MST
+        SET     
+                 CAT_ID =#{cat_id}
+            ,    BOOK_NM =#{book_nm}
+            ,    AUTHOR_ID =#{author_id}
+            ,    PB_ID =#{pb_id}
+            ,    PRICE =#{price}
+            ,    PB_DATE =#{pb_date}
+            ,    BOOK_IMG =#{book_img}
+            ,    PAGES =#{pages}
+            ,    VOLUME =#{volume}
+            ,    BOOK_INTRO =#{book_intro}
+            ,    RMK =#{rmk}
+            ,    CH_ID =#{ch_id}
+            ,    CH_DTTI = NOW()
+        WHERE    BOOK_ID =#{book_id}
+    </update>
+
 
     <delete id="deleteBook" parameterType="com.play.jcslib.bookstore2.vo.BookVo">
         DELETE 

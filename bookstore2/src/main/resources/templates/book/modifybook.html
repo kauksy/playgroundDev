@@ -24,58 +24,61 @@
 </head>
 <body>
 	<h1>도서 리스트</h1>
+	<!-- <form method="post" action="/savebook"> -->
+	<form method="post" action="/savebookMap">
 	<button type="button" onclick="location.href='/makebookform'">책 등록</button>
 	<button type="button" onclick="location.href='/deletebook'">책 삭제</button>
 	<button type="button" onclick="location.href='/index'">목록</button>
+	<button type="submit" id="saveModiBook">저장</button>
 
 	<table id="bookTB">
 		<tr>
 			<th>*도서PK (ISBN)</th>
-            <td><input type="text" th:value="${book.book_id}" readonly/></td>
+            <td><input type="text" id="book_id" name="book_id" th:value="${book.book_id}" readonly/></td>
 		</tr>
 		<tr>
 			<th>카테고리 ID</th>
-			<td><input type="text" th:value="${book.cat_id}" /></td>
+			<td><input type="text" id="cat_id" name="cat_id" th:value="${book.cat_id}" /></td>
 		</tr>
 		<tr>
 			<th>도서명</th>
-			<td><input type="text" th:value="${book.book_nm}" /></td>
+			<td><input type="text" id="book_nm" name="book_nm" th:value="${book.book_nm}" /></td>
 		</tr>
 		<tr>
 			<th>작가</th>
-			<td><input type="text" th:value="${book.author_id}" /></td>
+			<td><input type="text" id="author_id" name="author_id" th:value="${book.author_id}" /></td>
 		</tr>
 		<tr>
 			<th>출판사</th>
-			<td><input type="text" th:value="${book.pb_id}" /></td>
+			<td><input type="text" id="pb_id" name="pb_id" th:value="${book.pb_id}" /></td>
 		</tr>
 		<tr>
 			<th>정가</th>
-			<td><input type="text" th:value="${book.price}" /></td>
+			<td><input type="number" id="price" name="price" th:value="${book.price}" /></td>
 		</tr>
 		<tr>
 			<th>발행일(출판일)</th>
-			<td><input type="text" th:value="${book.pb_date}" /></td>
+			<td><input type="text" id="pb_date" name="pb_date" th:value="${book.pb_date}" /></td>
 		</tr>
 		<tr>
 			<th>이미지 경로</th>
-			<td><input type="text" th:value="${book.book_img}" /></td>
+			<td><input type="text" id="book_img" name="book_img" th:value="${book.book_img}" /></td>
 		</tr>
 		<tr>
 			<th>쪽수</th>
-			<td><input type="text" th:value="${book.pages}" /></td>
+			<td><input type="text" id="pages" name="pages" th:value="${book.pages}" /></td>
 		</tr>
 		<tr>
 			<th>총 권수</th>
-			<td><input type="text" th:value="${book.volume}" /></td>
+			<td><input type="text" id="volume" name="volume" th:value="${book.volume}" /></td>
 		</tr>
 		<tr>
 			<th>도서소개</th>
-			<td><input type="text" th:value="${book.book_intro}" /></td>
+			<td><input type="text" id="book_intro" name="book_intro" th:value="${book.book_intro}" /></td>
 		</tr>
 		<tr>
 			<th>비고</th>
-			<td><input type="text" th:value="${book.rmk}" /></td>
+			<td><input type="text" id="rmk" name="rmk" th:value="${book.rmk}" /></td>
 		</tr>
 		<tr>
 			<th>*등록자</th>
@@ -87,12 +90,13 @@
 		</tr>
 		<tr>
 			<th>*수정자</th>
-			<td><input type="text" th:value="${book.ch_id}" /></td>
+			<td><input type="text" id="ch_id" name="ch_id" th:value="${book.ch_id}" /></td>
 		</tr>
 		<tr>
 			<th>*수정일시</th>
-			<td><input type="text" th:value="${book.ch_dtti}" readonly/></td>
+			<td><input type="text" id="ch_dtti" name="ch_dtti" th:value="${book.ch_dtti}" readonly/></td>
 		</tr>
 	</table>
+</form>
 </body>
 </html>
